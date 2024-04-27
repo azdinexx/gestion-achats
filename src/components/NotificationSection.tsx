@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { Bell } from './icones/Bell';
+import { CLose } from './icones/Close';
 
 function NotificationSection() {
   const [mini, setMini] = React.useState(false);
@@ -10,14 +11,19 @@ function NotificationSection() {
         onClick={() => setMini(!mini)}
         className='bg-neutral-200 shadow-lg p-2 rounded-full text-neutral-800 w-fit ml-auto absolute top-4 right-6'
       >
-        <Bell width={24} height={24} />
+        {mini ? (
+          <Bell width={24} height={24} />
+        ) : (
+          <CLose width={24} height={24} />
+        )}
       </button>
       <div
-        className='w-1/3 border-l-2 border-stone-300 h-full flex flex-col p-4 transition-all duration-300 ease-in-out bg-white shadow-lg'
+        className='w-1/3 border-l-2 border-stone-300 h-full flex flex-col p-4 transition-all duration-1000 ease-in-out bg-white shadow-lg'
         style={{
           width: mini ? '0' : '30%',
           height: mini ? '0' : '100%',
           opacity: mini ? 0 : 1,
+          borderRadius: mini ? '0 0 0 100rem' : '0',
         }}
       >
         <div className=' flex pr-4  items-end'>
